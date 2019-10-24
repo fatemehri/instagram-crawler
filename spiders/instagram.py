@@ -5,7 +5,8 @@ class InstagramSpider(scrapy.Spider):
     name = "instagram"
 
     def start_requests(self):
-        url = input("Enter Instagram Account: ")
+        self.account = input("Account Name: ")
+        url = "https://www.instagram.com/" + self.account + "/?__a=1"
         yield scrapy.Request(url=url)
 
     def parse(self, response):
